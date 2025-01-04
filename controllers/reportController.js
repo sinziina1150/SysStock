@@ -11,7 +11,7 @@ exports.generateReport = async (req, res) => {
 
     const doc = new PDFDocument();
     const fileName = "output.pdf"; // กำหนดชื่อไฟล์
-    const filePath = path.join(__dirname, "..", "uploads", fileName); // กำหนดที่เก็บไฟล์
+    const filePath = path.join(__dirname, "..", "tmp", fileName); // กำหนดที่เก็บไฟล์
 
     doc.pipe(fs.createWriteStream(filePath));
     doc.font("./Font/THSarabunNew.ttf");
