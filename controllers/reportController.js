@@ -12,9 +12,10 @@ exports.generateReport = async (req, res) => {
     const doc = new PDFDocument();
     const fileName = "output.pdf"; // กำหนดชื่อไฟล์
     const filePath = path.join("/tmp", fileName); // เปลี่ยนเส้นทางเป็น /tmp
+    const fontPath = path.join('/Font', 'THSarabunNew.ttf');
 
     doc.pipe(fs.createWriteStream(filePath));
-    doc.font("./Font/THSarabunNew.ttf");
+    doc.font(fontPath);
 
     doc
       .image("logo.jpg", 50, 45, { width: 50 })
@@ -58,7 +59,7 @@ exports.generateReport = async (req, res) => {
       x: startX,
       y: startY,
       width: 600,
-      prepareHeader: () => doc.font("./Font/THSarabunNew.ttf").fontSize(14),
+      prepareHeader: () => doc.font(fontPath).fontSize(14),
       prepareRow: (row, indexColumn, indexRow, rectRow, rectCell) => {
         const { x, y, width, height } = rectCell;
         if (indexColumn === 0) {
@@ -75,7 +76,7 @@ exports.generateReport = async (req, res) => {
           .lineTo(x + width, y + height)
           .stroke();
 
-        doc.font("./Font/THSarabunNew.ttf").fontSize(10).fillColor("#292929");
+        doc.font(fontPath).fontSize(10).fillColor("#292929");
       },
     });
 
