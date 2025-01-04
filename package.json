@@ -2,10 +2,9 @@
     "name": "equipment-management-api",
     "version": "1.0.0",
     "description": "API for equipment management and user authentication",
-    "main": "app.js",
+    "main": "index.js",
     "scripts": {
-        "start": "nodemon app.js",
-        "dev": "nodemon app.js"
+        "start": "nodemon index.js"
     },
     "dependencies": {
         "dotenv": "^16.4.7",
