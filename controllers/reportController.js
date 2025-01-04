@@ -11,8 +11,9 @@ exports.generateReport = async (req, res) => {
 
     const doc = new PDFDocument();
     const fileName = "output.pdf"; // กำหนดชื่อไฟล์
-    const filePath = path.join("/tmp", fileName); // เปลี่ยนเส้นทางเป็น /tmp
-    const fontPath = path.join('/Font', 'THSarabunNew.ttf');
+    const filePath = path.join(__dirname, "..", "tmp", fileName); // กำหนดที่เก็บไฟล์
+    console.log(filePath)
+    const fontPath = path.join('Font', 'THSarabunNew.ttf');
 
     doc.pipe(fs.createWriteStream(filePath));
     doc.font(fontPath);
@@ -83,7 +84,7 @@ exports.generateReport = async (req, res) => {
     doc.end();
 
     // ส่งลิงก์สำหรับดาวน์โหลดไฟล์
-    const fileUrl = `/uploads/${fileName}`; // ระบุ URL ของไฟล์ที่สามารถเข้าถึงได้
+    const fileUrl = `/tmp/${fileName}`; // ระบุ URL ของไฟล์ที่สามารถเข้าถึงได้
 
     res
       .status(200)
