@@ -1,0 +1,20 @@
+{
+    "name": "equipment-management-api",
+    "version": "1.0.0",
+    "description": "API for equipment management and user authentication",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js",
+        "dev": "nodemon app.js"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "express": "^4.18.2",
+        "mysql2": "^2.3.3",
+        "pdfkit": "^0.16.0",
+        "pdfkit-table": "^0.1.99"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.22"
+    }
+}
